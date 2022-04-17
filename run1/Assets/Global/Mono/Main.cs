@@ -1,6 +1,8 @@
 using Leopotam.EcsLite;
 using UnityEngine.UI;
 using UnityEngine;
+using Leopotam.EcsLite.ExtendedSystems;
+using Unity.VisualScripting;
 
 namespace Platformer
 {
@@ -36,7 +38,8 @@ namespace Platformer
 
             updateSystems = new EcsSystems(ecsWorld, data)
                 .Add(new PlayerInputSystem())
-                .Add(new CoinHitSystem());
+                .Add(new CoinHitSystem())
+                .DelHere<HitComponent>();
 
             updateSystems.Init();
 
